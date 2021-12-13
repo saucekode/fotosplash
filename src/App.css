@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.App{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: .4s;
+  padding: 30px;
+}
+
+.login{
+  min-height: 50vh;
+}
+
+.verticalAlign{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash_logo img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.splash_logo{
+  height: 180px;
+  width: 180px;
+}
+
+input{
+  outline: none;
+}
+
+/* app style */
+.primary-color{
+  color: #4F4F4F;
+}
+
+.secondary-color{
+  color: #828282;
+}
+
+.faded-gray{
+  color: #BDBDBD;
+}
+
+.bgblue-color{
+  background: #2F80ED;
+}
+
+.blue-color{
+  color: #2F80ED;
+}
+
+.faded-blue{
+  background: #F6F8FB;
+}
+
+.font-sm{
+  font-size: 10px;
+}
+
+.font-md{
+  font-size: 12px;
+}
+
+.font-lg{
+  font-size: 18px;
+}
+
+.pt-10{
+  padding-top: 10px;
+}
+
+.pt-15{
+  padding-top: 15px;
+}
+
+.pt-20{
+  padding-top: 20px;
+}
+
+.taLeft{
+  text-align: left;
+}
+
+.taRight{
+  text-align: right;
+}
+
+.taCenter{
+  text-align: center;
+}
+
+.alignSelfStart{
+  align-self: flex-start;
+}
+
+/* component styles */
+
+.Toast_style{
+  position: absolute;
+  top: 50px;
+  color: #fff;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.Toast_style p:last-child{
+  /* padding-left: 20px; */
+  cursor: pointer;
+}
+
+.rw-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-login{
+  margin-top: 20px;
+  padding: 15px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #de345e;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn-login:hover{
+  transform: scale(1.08)
+}
+
+.header{
+
+}
+
+
+@media screen and (max-width: 480px) {
+  
+}
