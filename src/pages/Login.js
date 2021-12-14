@@ -1,8 +1,10 @@
 import React from 'react'
 import logo from 'assets/fotosplash.svg'
 import google from 'assets/google.png'
+import {loginService} from 'backend/api'
 
 const Login = () => {
+
     return (
         <div className='login'>
             <div className='verticalAlign'>
@@ -11,7 +13,7 @@ const Login = () => {
                 </div>
                 <h3 style={{marginTop: '-45px'}}>Welcome to Fotosplash</h3>
 
-                <button className='btn-login rw-flex'>
+                <button className='btn-login rw-flex' onClick={loginService}>
                     <img style={{width: '20px', height: '20px'}} src={google} alt="google"/>
                     <p style={{paddingLeft: '10px', fontWeight: 'bold'}}>Get in here, love</p>
                 </button>

@@ -1,15 +1,7 @@
-import { useEffect, useState } from "react";
 import axios from 'axios'
 
-const client = axios.create({
-    baseUrl: 'http://fotosplash.herokuapp.com/api/'
-})
+const baseUrl = 'https://fotosplash.herokuapp.com/api'
 
-export default function Backend () {
-    
-    const [data, setData] = useState(null);
-
-    
-
-
+export const loginService = async () => {
+    return await axios.get(`${baseUrl}/login`).then(res => console.log(res.data))
 }
