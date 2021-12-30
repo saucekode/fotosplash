@@ -144,6 +144,7 @@ input{
   color: #fff;
   cursor: pointer;
   transition: .3s;
+  text-decoration: none;
 }
 
 .btn-login:hover{
