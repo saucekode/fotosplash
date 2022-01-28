@@ -1,14 +1,13 @@
 import React from 'react'
 
-const Button = ({text, children, width, action}) => {
+const Button = ({text, action, bgColor}) => {
 
   const buttonStyle = {
-    width: width || '101px',
-    height: '32px',
-    background: '#2F80ED',
+    padding: '10px 12px',
+    background: bgColor,
     color: '#fff',
     fontSize: '12px',
-    fontWeight: 500,
+    fontWeight: 'bold',
     border: 'none',
     borderRadius: '7px',
     cursor: 'pointer',
@@ -16,9 +15,8 @@ const Button = ({text, children, width, action}) => {
   }
 
   return (
-    <button style={buttonStyle} onClick={action}>
+    <button style={buttonStyle} className='btn' onClick={action}>
       {text}
-      {children}
     </button>
   )
 }

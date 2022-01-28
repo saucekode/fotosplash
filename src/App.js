@@ -1,11 +1,10 @@
 import './App.css';
 // import { useState } from 'react';
-// import Header from 'components/header';
+
 // import Body from 'components/body';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from 'pages/Login';
-import OAuthRedirect from 'components/OAuthRedirect';
-import Profile from 'pages/Profile';
+import Photos from 'pages/Photos';
 
 function App() {
 
@@ -14,8 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Login/>}></Route>
-          <Route exact path="/oauth2/redirect" component={OAuthRedirect}></Route>
-          <Route exact path="/profile" component={Profile}></Route>
+          <Route path="/photos" element={<Photos/>}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Header/> */}

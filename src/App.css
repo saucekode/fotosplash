@@ -39,6 +39,10 @@
   width: 180px;
 }
 
+.text-bold{
+  font-weight: bold;
+}
+
 input{
   outline: none;
 }
@@ -66,6 +70,10 @@ input{
 
 .faded-blue{
   background: #F6F8FB;
+}
+
+.text-white{
+  color: #fff;
 }
 
 .font-sm{
@@ -110,6 +118,25 @@ input{
 
 /* component styles */
 
+.btn{
+  cursor: pointer;
+  transition: .4s;
+}
+
+.btn:hover{
+  transform: scale(0.9);
+} 
+
+.btn-green{
+  background: #3DB46D;
+}
+
+.btn-red{
+  background: #EB5757;
+}
+
+
+
 .Toast_style{
   position: absolute;
   top: 50px;
@@ -152,11 +179,55 @@ input{
   transform: scale(1.08)
 }
 
-.header{
-
+.photo-body{
+  width: 1149px;
+  /* background: red; */
 }
 
+.logo-body{
+  /* background: green; */
+  height: auto;
+  width: 100px;
+}
 
+.logo-body img{
+  width: 100%;
+  height: 100%;
+  margin-left: -30px;
+  object-fit: cover;
+}
+
+.header-left input{
+  width: 220px;
+  height: 40px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  text-indent: 20px;
+  transition: .4s;
+}
+
+.header-left input:focus{
+  border-color: rgba(0,0,0,0.6);
+}
+
+.single-photo{
+  width: 320px;
+  height: 308px;
+  padding-bottom: 50px;
+}
+
+.single-photo img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.photos{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 @media screen and (max-width: 480px) {
   
 }
