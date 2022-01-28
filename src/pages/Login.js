@@ -1,42 +1,9 @@
-import {useEffect, useState} from 'react'
 import logo from 'assets/fotosplash.svg'
 import google from 'assets/google.png'
-import { API_BASE_URL, GOOGLE_AUTH_URL } from 'appconstants'
-import axios from 'axios'
-import { toast } from 'react-toastify'
+import { GOOGLE_AUTH_URL } from 'appconstants'
 
 const Login = () => {
 
-    const [user, setUser] = useState({
-        isAuth: false,
-        data: {}
-    });
-
-    useEffect(() => {
-        axios.get(`${API_BASE_URL}/api/userInfo`)
-        .then(res => {
-            if(res !== []){
-                setUser({
-                    isAuth: true,
-                    data: res.data
-                })
-
-                const {authToken} = user;
-                localStorage.setItem('user', JSON.stringify(user))
-                localStorage.setItem("token", JSON.stringify(authToken))
-
-                toast.success("Successfully logged in!", {
-                    position: toast.POSITION.TOP_RIGHT
-                })
-            }
-            console.log(res.data)
-
-        }).catch(error => {
-            toast.error(error, {
-                position: toast.POSITION.TOP_RIGHT
-            })
-        })
-    }, [user])
 
     return (
         <div className='login'>
