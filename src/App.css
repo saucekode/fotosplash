@@ -145,6 +145,7 @@ input{
   cursor: pointer;
   transition: .3s;
   text-decoration: none;
+  outline: none;
 }
 
 .btn-login:hover{
