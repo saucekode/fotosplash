@@ -100,6 +100,10 @@ input{
   padding-top: 20px;
 }
 
+.pb-15{
+  padding-bottom: 15px;
+}
+
 .taLeft{
   text-align: left;
 }
@@ -215,22 +219,97 @@ input{
   border-color: rgba(0,0,0,0.6);
 }
 
+.photos{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.no_photo{
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
 .single-photo{
   width: 300px;
-  height: 318px;
+  height: 418px;
+  margin-bottom: 40px;
+  position: relative;
+  cursor: pointer;
+  transition: .4s;
+  align-self: flex-start;
+  margin: 0 45px 40px 0;
+}
+
+.single-photo:hover .delete_photo{ 
+  opacity: 1;
 }
 
 .single-photo img{
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
-.photos{
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
+
+.popup{
+  padding: 25px;
+  border-radius: 12px;
+  background-color: #fff;
+  z-index: 4;
+}
+
+.photo-input{
+  width: 452px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.4);
+  text-indent: 15px;
+}
+
+.cancel-submit{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cancel-submit p{
+  padding-right: 15px;
+  color: rgba(0,0,0,0.6);
+  font-weight: bold;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.cancel-submit p:hover{
+  color: rgba(0,0,0,1);
+}
+
+.delete_photo{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  opacity: 0;
+  transition: .4s;
+}
+
 @media screen and (max-width: 480px) {
   
 }
