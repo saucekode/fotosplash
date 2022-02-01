@@ -4,7 +4,7 @@ import Button from 'components/UI/button'
 
 const Header = () => {
     return (
-        <div className='header rw-flex'>
+        <div className='rw-flex'>
             <div className='rw-flex header-left'>
                 <div className='logo-body'>
                     <img src={logo} alt="fotosplash"/>

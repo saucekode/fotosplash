@@ -14,7 +14,7 @@
   justify-content: center;
   position: relative;
   transition: .4s;
-  padding: 30px;
+  padding: 0px 30px;
 }
 
 .login{
@@ -156,6 +156,11 @@ input{
   cursor: pointer;
 }
 
+.photo_design{
+  width: 100%;
+  min-height: 100vh;
+}
+
 .rw-flex{
   display: flex;
   justify-content: space-between;
@@ -180,7 +185,7 @@ input{
 }
 
 .photo-body{
-  width: 1149px;
+  width: 1200px;
   /* background: red; */
 }
 
@@ -211,16 +216,14 @@ input{
 }
 
 .single-photo{
-  width: 320px;
-  height: 308px;
-  padding-bottom: 50px;
+  width: 300px;
+  height: 318px;
 }
 
 .single-photo img{
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 5px;
 }
 
 .photos{

@@ -4,16 +4,18 @@ import { photoData } from 'data';
 import Photo from 'components/photo';
 
 
-
 const Photos = () => {
 
+    const photos =  photoData.map(photo => (
+        <Photo key={photo.id} src={photo.image}/>
+    ))
+
     return (
-        <div className='photo-body'>
+        <div className='photo_design'>
             <Header/>
+
             {
-                photoData.map(photo => (
-                    <Photo key={photo.id} src={photo.image}/>
-                ))
+                photoData.length === 0 ? <div>No photos found</div> : photos
             }
         </div>
     )
