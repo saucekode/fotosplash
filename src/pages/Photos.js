@@ -7,23 +7,36 @@ import Popup from 'components/UI/popup';
 import Button from 'components/UI/button'
 
 
-const Photos = () => {
+const Photos = ({ isLoggedOut, action, currentUser, isLoading}) => {
+
+    const {data, isAuthenticated} = currentUser;
+
+    // console.log(currentUser)
 
     const [isToBeDeleted, setIsToBeDeleted] = useState(false);
 
     const photos =  photoData.map(photo => (
-        <Photo key={photo.id} src={photo.image} action={() => setIsToBeDeleted(true)}/>
+        <Photo key={photo.id} src={photo.image} action={action}/>
     ))
+
+    // () => setIsToBeDeleted(true)
 
     return (
         <div className='photo_design'>
-            <Header/>
+            {!isLoading
+                ?
+                <>
+                    {isAuthenticated ? <Header action={isLoggedOut} profile={data}/> : ''}
 
-            <div className='photos'>
-            {
-                photoData.length === 0 ? <div className='no_photo'>No photos found</div> : photos
+                    <div className='photos'>
+                    {
+                        photoData.length === 0 ? <div className='no_photo'>No photos found</div> : photos
+                    }
+                    </div>
+                </>
+                :
+                "not available"
             }
-            </div>
             {/* <Modal>
                 <Popup>
                     <p className='font-lg pb-15'>Add a new photo</p>

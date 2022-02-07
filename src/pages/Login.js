@@ -1,5 +1,5 @@
 import logo from 'assets/fotosplash.svg'
-import google from 'assets/google.png'
+import google from 'assets/images/google.png'
 import { GOOGLE_AUTH_URL } from 'appconstants'
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
 
                 <a href={GOOGLE_AUTH_URL} className='btn-login rw-flex'>
                     <img style={{width: '20px', height: '20px'}} src={google} alt="google"/>
-                    <p style={{paddingLeft: '10px', fontWeight: 'bold'}}>Get in here, love</p>
+                    <p style={{paddingLeft: '10px', fontWeight: 'bold'}}>Login with Google</p>
                 </a>
             </div>
         </div>

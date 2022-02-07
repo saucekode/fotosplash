@@ -175,9 +175,9 @@ input{
   margin-top: 20px;
   padding: 15px 20px;
   border-radius: 6px;
-  border: none;
-  background: #de345e;
-  color: #fff;
+  border: 1px solid rgba(0,0,0,0.4);
+  background: transparent;
+  color: rgba(0,0,0,0.8);
   cursor: pointer;
   transition: .3s;
   text-decoration: none;
@@ -185,7 +185,7 @@ input{
 }
 
 .btn-login:hover{
-  transform: scale(1.08)
+  transform: scale(0.9)
 }
 
 .photo-body{
@@ -221,7 +221,7 @@ input{
 
 .photos{
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
   position: relative;
 }
@@ -243,7 +243,7 @@ input{
   cursor: pointer;
   transition: .4s;
   align-self: flex-start;
-  margin: 0 45px 40px 0;
+  /* margin: 0 45px 40px 0; */
 }
 
 .single-photo:hover .delete_photo{ 
@@ -309,6 +309,43 @@ input{
   opacity: 0;
   transition: .4s;
 }
+
+.profile{
+  height: 30px;
+  width: 30px;
+  margin: 0 8px 0 35px;
+}
+
+.profile img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.profile-block p{
+  text-transform: lowercase;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.logout{
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: .3s;
+}
+
+.logout img{
+  height: 100%;
+  width: 100%;
+}
+
+.logout:hover{
+  opacity: 1;
+}
+
 
 @media screen and (max-width: 480px) {
   

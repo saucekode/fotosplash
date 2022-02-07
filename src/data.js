@@ -20,12 +20,12 @@ export const photoData = [
         id: 4,
         image: image4
     },
-    {
-        id: 5,
-        image: image2
-    },
-    {
-        id: 6,
-        image: image1
-    }
+    // {
+    //     id: 5,
+    //     image: image2
+    // },
+    // {
+    //     id: 6,
+    //     image: image1
+    // }
 ]
