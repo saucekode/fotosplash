@@ -18,8 +18,8 @@ const Photos = ({ action}) => {
     ))
 
     useEffect(() => {
-        axios.get(`${API_BASE_URL}/api/v1/photo/viewphotos`, header).then(res => {
-            setPhotos(res.data)
+        axios.get(`${API_BASE_URL}/api/v1/photo/viewphotos`).then(res => {
+            setPhotos(res.data.photos)
         })
     })
     

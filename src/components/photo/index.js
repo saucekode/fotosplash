@@ -5,9 +5,9 @@ const Photo = ({src, action}) => {
   return (
     <div className='single-photo'>
       <img src={src} alt={src} /> 
-      <div className='delete_photo'>
+      {/* <div className='delete_photo'>
         <Button text='Delete' bgColor='#EB5757' action={action}/>
-      </div>
+      </div> */}
     </div>
   )
 };

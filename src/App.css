@@ -10,6 +10,7 @@
 .App{
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -155,7 +156,7 @@ input{
   padding: 10px 15px;
   border-radius: 6px;
   font-size: 13px;
-  border: 1px solid rgba(0,0,0,0.4);
+  border: 1px solid rgba(0,0,0,0.1);
   background: transparent;
   color: rgba(0,0,0,0.8);
   cursor: pointer;
@@ -165,7 +166,8 @@ input{
 }
 
 .btn-login:hover{
-  transform: scale(0.9)
+  transform: scale(0.9);
+  border-color: rgba(0,0,0,0.5);
 }
 
 .photo-body{
