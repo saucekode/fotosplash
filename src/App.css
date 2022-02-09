@@ -11,10 +11,11 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
   transition: .4s;
   padding: 0px 30px;
+  /* width: 1200px; */
 }
 
 .login{
@@ -139,27 +140,6 @@ input{
   background: #EB5757;
 }
 
-
-
-.Toast_style{
-  position: absolute;
-  top: 50px;
-  color: #fff;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 12px;
-  transition: .3s;
-}
-
-.Toast_style p:last-child{
-  /* padding-left: 20px; */
-  cursor: pointer;
-}
-
 .photo_design{
   width: 100%;
   min-height: 100vh;
@@ -172,9 +152,9 @@ input{
 }
 
 .btn-login{
-  margin-top: 20px;
-  padding: 15px 20px;
+  padding: 10px 15px;
   border-radius: 6px;
+  font-size: 13px;
   border: 1px solid rgba(0,0,0,0.4);
   background: transparent;
   color: rgba(0,0,0,0.8);
@@ -206,6 +186,10 @@ input{
   object-fit: cover;
 }
 
+.header{
+  width: 100%;
+}
+
 .header-left input{
   width: 220px;
   height: 40px;
@@ -234,6 +218,15 @@ input{
   font-weight: bold;
   font-size: 1.6em;
 }
+
+.no_photo img{
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+
 
 .single-photo{
   width: 300px;
@@ -274,6 +267,7 @@ input{
   border-radius: 12px;
   background-color: #fff;
   z-index: 4;
+  transition: .4s;
 }
 
 .photo-input{
@@ -323,7 +317,6 @@ input{
 }
 
 .profile-block p{
-  text-transform: lowercase;
   font-size: 12px;
   font-weight: bold;
   margin-right: 8px;

@@ -1,56 +1,49 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Header from 'components/header';
 import { photoData } from 'data';
 import Photo from 'components/photo';
-import Modal from 'components/UI/modal';
-import Popup from 'components/UI/popup';
-import Button from 'components/UI/button'
+import noPhoto from 'assets/images/no-pictures.png'
+import axios from 'axios';
+import { API_BASE_URL } from 'appconstants';
+import {  header } from 'services/Backend';
 
 
-const Photos = ({ isLoggedOut, action, currentUser, isLoading}) => {
+const Photos = ({ action}) => {
 
-    const {data, isAuthenticated} = currentUser;
+    const [photos, setPhotos] = useState();
+    
 
-    // console.log(currentUser)
-
-    const [isToBeDeleted, setIsToBeDeleted] = useState(false);
-
-    const photos =  photoData.map(photo => (
+    const allPhotos =  photos.map(photo => (
         <Photo key={photo.id} src={photo.image} action={action}/>
     ))
 
-    // () => setIsToBeDeleted(true)
+    useEffect(() => {
+        axios.get(`${API_BASE_URL}/api/v1/photo/viewphotos`, header).then(res => {
+            setPhotos(res.data)
+        })
+    })
+    
 
     return (
         <div className='photo_design'>
-            {!isLoading
-                ?
-                <>
-                    {isAuthenticated ? <Header action={isLoggedOut} profile={data}/> : ''}
+            
+            <>
 
-                    <div className='photos'>
-                    {
-                        photoData.length === 0 ? <div className='no_photo'>No photos found</div> : photos
-                    }
-                    </div>
-                </>
-                :
-                "not available"
-            }
-            {/* <Modal>
-                <Popup>
-                    <p className='font-lg pb-15'>Add a new photo</p>
-                    <label className='font-md text-bold'>Label</label><br/>
-                    <input type='text' className='photo-input' placeholder='Enter photo label'/><br/>
-                    <div className='pt-10'></div>
-                    <label className='font-md text-bold'>Photo URL</label><br/>
-                    <input type='text' className='photo-input' placeholder='https://www.imageurl.com'/>
-                    <div className='cancel-submit pt-15'>
-                        <p className='font-md'>Cancel</p>
-                        <Button text='Submit' bgColor='#3DB46D'/>
-                    </div>
-                </Popup>
-            </Modal> */}
+                <div className='photos'>
+                {
+                    allPhotos.length === 0 
+                        ? 
+                    <div className='no_photo'>
+                        <img src={noPhoto} alt="empty box"/>
+                        <p className='taCenter'>No photos found</p>
+                    </div> 
+                    : 
+                    allPhotos
+                }
+                </div>
+            </>
+               
+            
 
             {/* {
                 isToBeDeleted 

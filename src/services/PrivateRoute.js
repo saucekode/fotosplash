@@ -8,7 +8,7 @@ import {
 const PrivateRoute = () => {
   
     const token = localStorage.getItem(ACCESS_TOKEN)
-    return token ? <Outlet/> : <Navigate to="/"/>
+    return token ? <Outlet/> : <Navigate to="/photos"/>
 };
 
 
