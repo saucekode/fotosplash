@@ -35,7 +35,7 @@ function App() {
           draggable: true,
           progress: undefined,
       })
-        return <Navigate to="/photos"/>   
+        return <Navigate to="/"/>   
     }else{
       toast.error(authError + " 😔", {
         position: "top-right",
@@ -48,7 +48,7 @@ function App() {
     })
         return (  
             <>
-                <Navigate to="/"/>   
+                <Navigate to="/notfound"/>   
                 
             </>
         )
@@ -101,7 +101,7 @@ function App() {
         <Routes>
           <Route element={<PrivateRoute isLoggedOut={logoutHandler}/>}>
           </Route>
-          <Route exact path="/photos" element={<Photos currentUser={currentUser} isLoading={isLoading}/>}></Route>
+          <Route exact path="/" element={<Photos currentUser={currentUser} isLoading={isLoading}/>}></Route>
           <Route exact path="/oauth2/redirect" element={<OAuthRedirect/>}></Route>  
           {/* <Route component={NotFound}></Route> */}
         </Routes>

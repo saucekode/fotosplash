@@ -207,9 +207,10 @@ input{
 
 .photos{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
   position: relative;
+  padding-top: 20px;
 }
 
 .no_photo{
@@ -228,8 +229,6 @@ input{
   margin: 0 auto;
 }
 
-
-
 .single-photo{
   width: 300px;
   height: 418px;
@@ -238,7 +237,7 @@ input{
   cursor: pointer;
   transition: .4s;
   align-self: flex-start;
-  /* margin: 0 45px 40px 0; */
+  margin: 0 45px 40px 0;
 }
 
 .single-photo:hover .delete_photo{ 

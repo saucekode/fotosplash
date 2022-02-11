@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://localhost:8181"
+export const API_BASE_URL = "https://fotosplash.herokuapp.com"
 // "https://fotosplash.herokuapp.com";
 
 export const ACCESS_TOKEN = "accessToken";

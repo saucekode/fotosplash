@@ -11,18 +11,18 @@ import {  header } from 'services/Backend';
 const Photos = ({ action}) => {
 
     const [photos, setPhotos] = useState();
+    const [photosLoading, setPhotosLoading] = useState(true)
     
-
-    const allPhotos =  photos.map(photo => (
-        <Photo key={photo.id} src={photo.image} action={action}/>
-    ))
-
     useEffect(() => {
         axios.get(`${API_BASE_URL}/api/v1/photo/viewphotos`).then(res => {
+            setTimeout(() => {
+                setPhotosLoading(false)
+            }, 2000)
             setPhotos(res.data.photos)
-        })
-    })
+        }).catch(err => console.log(err))
+    }, [])
     
+    console.log(photos)
 
     return (
         <div className='photo_design'>
@@ -31,14 +31,18 @@ const Photos = ({ action}) => {
 
                 <div className='photos'>
                 {
-                    allPhotos.length === 0 
+                    photosLoading
                         ? 
                     <div className='no_photo'>
                         <img src={noPhoto} alt="empty box"/>
                         <p className='taCenter'>No photos found</p>
                     </div> 
                     : 
-                    allPhotos
+                    
+                    photos.map(photo => (
+                        <Photo key={photo.id} src={photo.image} action={action}/>
+                    ))
+                
                 }
                 </div>
             </>
