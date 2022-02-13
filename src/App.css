@@ -190,6 +190,7 @@ input{
 
 .header{
   width: 100%;
+  position: relative;
 }
 
 .header-left input{
@@ -220,6 +221,7 @@ input{
   transform: translate(-50%, -50%);
   font-weight: bold;
   font-size: 1.6em;
+  
 }
 
 .no_photo img{
@@ -261,6 +263,7 @@ input{
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 
 .popup{
@@ -340,6 +343,15 @@ input{
   opacity: 1;
 }
 
+.menu{
+  position: absolute;
+  right: 0px;
+  top: 70px;
+  height: 120px;
+  width: 130px;
+  border-radius: 4px;
+  background: red;
+}
 
 @media screen and (max-width: 480px) {
   

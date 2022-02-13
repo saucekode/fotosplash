@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import logo from 'assets/fotosplash.svg'
+import dropdown from 'assets/images/down-arrow.png'
 import Button from 'components/UI/button'
 import logout from 'assets/images/power-off.png'
 import Modal from 'components/UI/modal';
@@ -8,12 +9,13 @@ import Popup from 'components/UI/popup';
 import { API_BASE_URL, GOOGLE_AUTH_URL } from 'appconstants';
 import { getUser, header } from 'services/Backend';
 import google from 'assets/images/google.png'
+import { Link, Router } from 'react-router-dom'
 
-const Header = ({action, profile, showPhotoModal}) => {
+const Header = ({action, profile}) => {
     const 
     {
         isAuthenticated,
-        user,
+        data,
     } = profile;
 
     const [showAddPhotoModal, setShowAddPhotoModal] = useState(false)
@@ -21,6 +23,8 @@ const Header = ({action, profile, showPhotoModal}) => {
         photoLabel: "",
         image: ""
     })
+
+    console.log(photoForm)
 
     const handleChange = (evt) => {
         const value = evt.target.value;
@@ -48,7 +52,7 @@ const Header = ({action, profile, showPhotoModal}) => {
         
     }
 
-    console.log(isAuthenticated)
+    // console.log(user)
 
     return (
         <div className='rw-flex header'>
@@ -66,18 +70,24 @@ const Header = ({action, profile, showPhotoModal}) => {
                     <Button
                         text="Add a photo"
                         bgColor="#3DB46D"
-                        action={showPhotoModal}
+                        action={() => setShowAddPhotoModal(true)}
                     />
                     <div className='rw-flex profile-block'>
                         <div className='profile'>
-                            <img src={user?.userPhoto} alt="user profile"/>
+                            <img src={data?.userPhoto} alt="user profile"/>
                         </div>
-                        <p>Welcome, {user?.firstName}</p>
+                        <p>Welcome, {data?.firstName}</p>
                         <div className='logout' onClick={action}>
-                            <img src={logout} alt="logout" title='Log out'/>
+                            <img src={dropdown} alt="logout" title='Log out'/>
                         </div>
                     </div>
-               
+
+                    <div className='menu'>
+                        
+                        <div className='logout' onClick={action}>
+                            <span>Logout</span><img src={logout} alt="logout" title='Log out'/>
+                        </div>
+                    </div>
                 </div>
 
                 :
@@ -97,10 +107,10 @@ const Header = ({action, profile, showPhotoModal}) => {
                     <Popup>
                         <p className='font-lg pb-15'>Add a new photo</p>
                         <label className='font-md text-bold'>Label</label><br/>
-                        <input type='text' name="photoLabel" className='photo-input' value={photoForm.label} onChange={handleChange} placeholder='Enter photo label'/><br/>
+                        <input type='text' name="photoLabel" className='photo-input' value={photoForm.photoLabel} onChange={handleChange} placeholder='Enter photo label'/><br/>
                         <div className='pt-10'></div>
                         <label className='font-md text-bold'>Photo URL</label><br/>
-                        <input type='text' name="image" className='photo-input' value={photoForm.photourl} onChange={handleChange} placeholder='https://www.imageurl.com'/>
+                        <input type='text' name="image" className='photo-input' value={photoForm.image} onChange={handleChange} placeholder='https://www.imageurl.com'/>
                         <div className='cancel-submit pt-15'>
                             <p className='font-md' onClick={() => setShowAddPhotoModal(false)}>Cancel</p>
                             <Button text='Submit' bgColor='#3DB46D' action={addPhoto}/>

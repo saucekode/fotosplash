@@ -6,16 +6,16 @@ import { BrowserRouter, Route, Routes,Navigate } from 'react-router-dom';
 import Photos from 'pages/Photos';
 import PrivateRoute from 'services/PrivateRoute';
 import { ACCESS_TOKEN, API_BASE_URL } from 'appconstants';
-import { ToastContainer, toast } from 'react-toastify';
 import { redirectHandler } from 'utils/OauthRedirectHandler';
 import axios from 'axios';
+import Dashboard from 'pages/Dashboard';
+
 
 function App() {
 
   const token = redirectHandler('token');
   const authError = redirectHandler('error');
   const [isLoading, setIsLoading] = useState(false)
-  const [currentUser, setCurrentUser] = useState({})
 
   const [user, setUser] = useState({
     isAuthenticated: false,
@@ -25,36 +25,16 @@ function App() {
   const OAuthRedirect = () => {
     
     if(token){
-        localStorage.setItem(ACCESS_TOKEN, token)
-        toast.success("Logged in successfully! 🎉 🪅 🎊", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-      })
-        return <Navigate to="/"/>   
-    }else{
-      toast.error(authError + " 😔", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    })
-        return (  
-            <>
-                <Navigate to="/notfound"/>   
-                
-            </>
-        )
+      localStorage.setItem(ACCESS_TOKEN, token)
+      return <Navigate to="/"/>   
+    }
+        
+    else{
+      console.log("hello")
     }
     
-  };
+    
+};
 
   const logoutHandler = () => {
     localStorage.clear()
@@ -63,9 +43,7 @@ function App() {
         isAuthenticated: false,
         data: null
     });
-    toast.success("You logged out successfully! 🎉 🪅 🎊", {
-      position: toast.POSITION.TOP_RIGHT
-  })
+   
     return <Navigate to="/"/>
   }
 
@@ -78,28 +56,28 @@ function App() {
         'Content-Type': 'application/json'
       }
     }).then(res => {
-      if(token){
-        setUser({
-          isAuthenticated: true,
-          data: res.data
-        })
-      }
       
-      setCurrentUser(JSON.parse(localStorage.getItem("user")))
-      
+      setUser({
+        isAuthenticated: true,
+        data: res.data
+      })
+    
     })
     
   }, [token])
   
-
   localStorage.setItem("user", JSON.stringify(user))
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  
+  console.log(currentUser)
 
   return (
     <div className="App">
       <Header action={logoutHandler} profile={currentUser}/>
       <BrowserRouter>
         <Routes>
-          <Route element={<PrivateRoute isLoggedOut={logoutHandler}/>}>
+          <Route element={<PrivateRoute isLoggedOut={logoutHandler} user={currentUser}/>}>
+            <Route exact path="/dashboard" element={<Dashboard/>}></Route>
           </Route>
           <Route exact path="/" element={<Photos currentUser={currentUser} isLoading={isLoading}/>}></Route>
           <Route exact path="/oauth2/redirect" element={<OAuthRedirect/>}></Route>  

@@ -5,10 +5,12 @@ import {
   } from "react-router-dom";
   
   
-const PrivateRoute = () => {
+const PrivateRoute = ({user}) => {
   
     const token = localStorage.getItem(ACCESS_TOKEN)
-    return token ? <Outlet/> : <Navigate to="/photos"/>
+    const {isAuthenticated} = user;
+
+    return token && isAuthenticated ? <Outlet/> : <Navigate to="/"/>
 };
 
 

@@ -1,17 +1,17 @@
 import {useEffect, useState} from 'react'
-import Header from 'components/header';
-import { photoData } from 'data';
 import Photo from 'components/photo';
-import noPhoto from 'assets/images/no-pictures.png'
 import axios from 'axios';
 import { API_BASE_URL } from 'appconstants';
-import {  header } from 'services/Backend';
+import Modal from 'components/UI/modal';
+import Popup from 'components/UI/popup';
+import Button from 'components/UI/button';
 
 
 const Photos = ({ action}) => {
 
     const [photos, setPhotos] = useState();
     const [photosLoading, setPhotosLoading] = useState(true)
+    const [isToBeDeleted, setIsToBeDeleted] = useState(false);
     
     useEffect(() => {
         axios.get(`${API_BASE_URL}/api/v1/photo/viewphotos`).then(res => {
@@ -34,13 +34,13 @@ const Photos = ({ action}) => {
                     photosLoading
                         ? 
                     <div className='no_photo'>
-                        <img src={noPhoto} alt="empty box"/>
-                        <p className='taCenter'>No photos found</p>
+                        {/* <img src={noPhoto} alt="empty box"/> */}
+                        <p className='taCenter'>Photos loading...</p>
                     </div> 
                     : 
                     
                     photos.map(photo => (
-                        <Photo key={photo.id} src={photo.image} action={action}/>
+                        <Photo key={photo.id} src={photo.image} action={() => setIsToBeDeleted(true)}/>
                     ))
                 
                 }
@@ -49,7 +49,7 @@ const Photos = ({ action}) => {
                
             
 
-            {/* {
+            {
                 isToBeDeleted 
                 &&
                 <Modal>
@@ -61,7 +61,7 @@ const Photos = ({ action}) => {
                         </div>
                     </Popup>
                 </Modal>
-            } */}
+            }
         </div>
     )
 }
