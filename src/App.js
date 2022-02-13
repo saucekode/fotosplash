@@ -9,6 +9,7 @@ import { ACCESS_TOKEN, API_BASE_URL } from 'appconstants';
 import { redirectHandler } from 'utils/OauthRedirectHandler';
 import axios from 'axios';
 import Dashboard from 'pages/Dashboard';
+import NotFound from 'pages/NotFound';
 
 
 function App() {
@@ -73,15 +74,16 @@ function App() {
 
   return (
     <div className="App">
-      <Header action={logoutHandler} profile={currentUser}/>
       <BrowserRouter>
+        <Header action={logoutHandler} profile={currentUser}/>
         <Routes>
           <Route element={<PrivateRoute isLoggedOut={logoutHandler} user={currentUser}/>}>
             <Route exact path="/dashboard" element={<Dashboard/>}></Route>
           </Route>
           <Route exact path="/" element={<Photos currentUser={currentUser} isLoading={isLoading}/>}></Route>
           <Route exact path="/oauth2/redirect" element={<OAuthRedirect/>}></Route>  
-          {/* <Route component={NotFound}></Route> */}
+          
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -123,6 +123,9 @@ input{
 }
 
 /* component styles */
+a{
+  text-decoration: none;
+}
 
 .btn{
   cursor: pointer;
@@ -326,7 +329,7 @@ input{
   margin-right: 8px;
 }
 
-.logout{
+.icons{
   height: 18px;
   width: 18px;
   cursor: pointer;
@@ -334,23 +337,45 @@ input{
   transition: .3s;
 }
 
-.logout img{
+.icons img{
   height: 100%;
   width: 100%;
 }
 
-.logout:hover{
+.icons:hover,
+.menu a:hover{
   opacity: 1;
 }
 
 .menu{
   position: absolute;
   right: 0px;
-  top: 70px;
-  height: 120px;
+  top: 80px;
+  height: 80px;
   width: 130px;
   border-radius: 4px;
-  background: red;
+  padding: 15px 22px;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 100;
+  transition: .4s;
+}
+
+.menu a{
+  color: rgba(0,0,0,0.9);
+  opacity: 0.6;
+}
+
+.menu div{
+  padding-top: 7px;
+  cursor: pointer;
+}
+
+.notfound{
+  padding-bottom:50vh;
+  font-size: 30px;
 }
 
 @media screen and (max-width: 480px) {

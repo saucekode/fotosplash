@@ -19,6 +19,7 @@ const Header = ({action, profile}) => {
     } = profile;
 
     const [showAddPhotoModal, setShowAddPhotoModal] = useState(false)
+    const [dropDown, setDropDown] = useState(false)
     const [photoForm, setPhotoForm] = useState({
         photoLabel: "",
         image: ""
@@ -77,17 +78,23 @@ const Header = ({action, profile}) => {
                             <img src={data?.userPhoto} alt="user profile"/>
                         </div>
                         <p>Welcome, {data?.firstName}</p>
-                        <div className='logout' onClick={action}>
-                            <img src={dropdown} alt="logout" title='Log out'/>
+                        <div className='icons' onClick={() => setDropDown(!dropDown)}>
+                            <img src={dropdown} alt="dropdown" title='Log out'/>
                         </div>
                     </div>
 
-                    <div className='menu'>
-                        
-                        <div className='logout' onClick={action}>
-                            <span>Logout</span><img src={logout} alt="logout" title='Log out'/>
+                    {
+                        dropDown
+                        ?
+                        <div className='menu'>
+                            <Link to="/dashboard">Dashboard</Link>
+                            <div className='icons' onClick={action}>
+                                Logout
+                            </div>
                         </div>
-                    </div>
+                        :
+                        null
+                    }
                 </div>
 
                 :
