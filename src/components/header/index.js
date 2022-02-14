@@ -58,9 +58,11 @@ const Header = ({action, profile}) => {
     return (
         <div className='rw-flex header'>
             <div className='rw-flex header-left'>
-                <div className='logo-body'>
-                    <img src={logo} alt="fotosplash"/>
-                </div>
+                <Link to="/">
+                    <div className='logo-body'>
+                        <img src={logo} alt="fotosplash"/>
+                    </div>
+                </Link>
                 <input type="text" placeholder='Search by name'/>
             </div>
 
