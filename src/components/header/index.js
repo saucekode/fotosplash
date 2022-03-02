@@ -3,13 +3,13 @@ import axios from 'axios'
 import logo from 'assets/fotosplash.svg'
 import dropdown from 'assets/images/down-arrow.png'
 import Button from 'components/UI/button'
-import logout from 'assets/images/power-off.png'
+// import logout from 'assets/images/power-off.png'
 import Modal from 'components/UI/modal';
 import Popup from 'components/UI/popup';
 import { API_BASE_URL, GOOGLE_AUTH_URL } from 'appconstants';
 import { getUser, header } from 'services/Backend';
 import google from 'assets/images/google.png'
-import { Link, Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Header = ({action, profile}) => {
     const 

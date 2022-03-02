@@ -15,8 +15,8 @@ import NotFound from 'pages/NotFound';
 function App() {
 
   const token = redirectHandler('token');
-  const authError = redirectHandler('error');
-  const [isLoading, setIsLoading] = useState(false)
+  // const authError = redirectHandler('error');
+  const [isLoading] = useState(false)
 
   const [user, setUser] = useState({
     isAuthenticated: false,

@@ -1,5 +1,5 @@
 export const redirectHandler = (name) => {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
     let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
 
     let results = regex.exec(window.location.search)
